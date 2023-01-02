@@ -1,0 +1,52 @@
+<style>
+    .modal-content{
+        background-color: #212121;
+    }
+</style>
+<div class="modal fade" id="exampleModal-{{item.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">{{item.name}}</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            {{item.description}}
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="PurchaseModal-{{item.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">{{item.name}}</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            
+            <form method="POST">
+                {{purchase_form.hidden_tag()}}
+
+                <h4 class="text-center">Are you sure you want to buy {{item.name}} for {{item.price}}?</h4>
+                <br>
+                <h6 class="text-center">By clicking Purchase,you will purchase this item.</h6>
+                <input id="purchase_item" name="purchase_item" type="hidden" value="{{item.name}}"></input>
+                {{purchase_form.submit(class="btn btn-outline-success btn-block")}}
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+        </div>
+        </div>
+    </div>
+    </div>
+
+
+
